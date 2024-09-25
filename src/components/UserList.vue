@@ -1,15 +1,21 @@
-<script setup>
+<script>
 import { useUsuariosStore } from '@/stores/usuarios.js'
-import { onMounted } from 'vue'
-const usuariosStore = useUsuariosStore()
 
-//obtener lista de usuarios al montar componente
-onMounted(() => {
-  usuariosStore.fetchUsuarios()
-})
-
-function handleDeleteUsuario(id) {
-  usuariosStore.deleteUsuario(id)
+export default {
+  data() {
+    return {
+      usuariosStore: useUsuariosStore()
+    }
+  },
+  //obtener lista de usuarios al montar componente
+  mounted() {
+    this.usuariosStore.fetchUsuarios()
+  },
+  methods: {
+    handleDeleteUsuario(id) {
+      this.usuariosStore.deleteUsuario(id)
+    }
+  }
 }
 </script>
 <template>

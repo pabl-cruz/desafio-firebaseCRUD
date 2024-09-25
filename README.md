@@ -1,6 +1,6 @@
 # ejercicio-firebaseCRUD
 
-This template should help get you started developing with Vue 3 in Vite.
+Ejercicio evaluado de una aplicación CRUD hecha en Vue 3, Pinia y Firebase. Ejercicio corresponde al M7 de Bootcamp de programación Front-end de Desafío Latam.
 
 ## Recommended IDE Setup
 

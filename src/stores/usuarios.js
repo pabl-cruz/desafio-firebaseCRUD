@@ -3,9 +3,12 @@ import { collection, onSnapshot, addDoc, deleteDoc, doc } from 'firebase/firesto
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
+//definir store de firebase y tabla
 export const useUsuariosStore = defineStore('usuarios', () => {
+  //usuarios es un arreglo asignado a valor referencial de vue para que tenga propiedades reactivas
   const usuarios = ref([])
 
+  //busqueda de usuarios
   async function fetchUsuarios() {
     try {
       const usuariosRef = collection(db, 'usuarios')
@@ -17,7 +20,7 @@ export const useUsuariosStore = defineStore('usuarios', () => {
       console.error(err)
     }
   }
-
+  //agregar usuario
   async function addUsuario(nameData, mailData) {
     try {
       const usuariosRef = collection(db, 'usuarios')
@@ -26,7 +29,7 @@ export const useUsuariosStore = defineStore('usuarios', () => {
       console.error(err)
     }
   }
-
+  //elminar usuario segun id
   async function deleteUsuario(id) {
     try {
       const usuariosRef = doc(db, 'usuarios', id)

@@ -1,17 +1,20 @@
-<script setup>
-import { ref } from 'vue'
+<script>
 import { useUsuariosStore } from '@/stores/usuarios.js'
 
-//data(){
-
-//}
-const nombreUsuario = ref('')
-const correoUsuario = ref('')
-const usuariosStore = useUsuariosStore()
-
-//callback
-function handleAddUsuario() {
-  usuariosStore.addUsuario(nombreUsuario.value, correoUsuario.value)
+export default {
+  data() {
+    return {
+      nombreUsuario: '',
+      correoUsuario: '',
+      usuariosStore: useUsuariosStore()
+    }
+  },
+  methods: {
+    //callback
+    handleAddUsuario() {
+      this.usuariosStore.addUsuario(this.nombreUsuario, this.correoUsuario)
+    }
+  }
 }
 </script>
 <template>
